@@ -6,13 +6,14 @@ package com.geodev.di.atributo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * @author geo
  *
  */
 
-@Component
+@Service
 public class Coche {
 
 	private String marca;

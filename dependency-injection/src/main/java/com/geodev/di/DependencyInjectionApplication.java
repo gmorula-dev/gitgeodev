@@ -6,7 +6,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
-import com.geodev.di.qualifiers.Animal;
+import com.geodev.di.atributo.Coche;
+
 @SpringBootApplication
 public class DependencyInjectionApplication {
 
@@ -15,9 +16,10 @@ public class DependencyInjectionApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(DependencyInjectionApplication.class, args);
 
-		Animal animal = context.getBean(Animal.class);
-
-		log.info("Animal nombre = {} edad = {}", animal.getNombre(), animal.getEdad());
+		Coche coche = context.getBean(Coche.class);
+		
+		System.out.println(coche);
+//		log.info("Animal nombre = {} edad = {}", animal.getNombre(), animal.getEdad());
 	}
 
 }
