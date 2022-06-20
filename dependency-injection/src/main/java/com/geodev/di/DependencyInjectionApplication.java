@@ -11,6 +11,7 @@ import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 
 import com.geodev.di.autowire.AreaCalculatorService;
+import com.geodev.di.lifecycle.ExplicitBean;
 import com.geodev.di.lifecycle.LifeCycleBean;
 import com.geodev.di.profiles.EnvironmentService;
 import com.geodev.di.qualifiers.Nido;
@@ -28,6 +29,11 @@ public class DependencyInjectionApplication {
 		return "Geo Rulz!";
 	}
 
+	@Bean(initMethod = "init", destroyMethod = "destroy")
+	public ExplicitBean getbBean() {
+		return new ExplicitBean();
+	}
+	
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(DependencyInjectionApplication.class, args);
 		LifeCycleBean bean = context.getBean(LifeCycleBean.class);
