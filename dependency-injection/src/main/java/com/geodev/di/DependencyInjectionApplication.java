@@ -21,22 +21,9 @@ import ch.qos.logback.core.spi.LifeCycle;
 
 @SpringBootApplication
 public class DependencyInjectionApplication {
-
-	private static final Logger log = LoggerFactory.getLogger(DependencyInjectionApplication.class);
-
-	@Bean
-	public String getApplicationName() {
-		return "Geo Rulz!";
-	}
-
-	@Bean(initMethod = "init", destroyMethod = "destroy")
-	public ExplicitBean getbBean() {
-		return new ExplicitBean();
-	}
 	
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(DependencyInjectionApplication.class, args);
-		LifeCycleBean bean = context.getBean(LifeCycleBean.class);
 	}
 
 }
